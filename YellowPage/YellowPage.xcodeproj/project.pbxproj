@@ -7,21 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		363B9C881E5D9B8D00FF286A /* PhoneBook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 363B9C871E5D9B8D00FF286A /* PhoneBook.swift */; };
+		363B9C8A1E5DC35400FF286A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 363B9C891E5DC35400FF286A /* Assets.xcassets */; };
 		36CFCF911E5D738D001A80F5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFCF901E5D738D001A80F5 /* AppDelegate.swift */; };
 		36CFCF931E5D738D001A80F5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFCF921E5D738D001A80F5 /* ViewController.swift */; };
 		36CFCF961E5D738D001A80F5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CFCF941E5D738D001A80F5 /* Main.storyboard */; };
-		36CFCF981E5D738D001A80F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 36CFCF971E5D738D001A80F5 /* Assets.xcassets */; };
 		36CFCF9B1E5D738D001A80F5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36CFCF991E5D738D001A80F5 /* LaunchScreen.storyboard */; };
+		36CFCFA61E5D7F88001A80F5 /* YellowPageMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFCFA51E5D7F88001A80F5 /* YellowPageMainViewController.swift */; };
+		36CFCFA81E5D81EB001A80F5 /* CommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFCFA71E5D81EB001A80F5 /* CommonView.swift */; };
+		36CFCFAA1E5D82D7001A80F5 /* ClientItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFCFA91E5D82D7001A80F5 /* ClientItem.swift */; };
+		36CFCFAC1E5D86C2001A80F5 /* CommonClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFCFAB1E5D86C2001A80F5 /* CommonClientCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		363B9C871E5D9B8D00FF286A /* PhoneBook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneBook.swift; sourceTree = "<group>"; };
+		363B9C891E5DC35400FF286A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36CFCF8D1E5D738D001A80F5 /* YellowPage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YellowPage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CFCF901E5D738D001A80F5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36CFCF921E5D738D001A80F5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		36CFCF951E5D738D001A80F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		36CFCF971E5D738D001A80F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		36CFCF9A1E5D738D001A80F5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		36CFCF9C1E5D738D001A80F5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36CFCFA51E5D7F88001A80F5 /* YellowPageMainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowPageMainViewController.swift; sourceTree = "<group>"; };
+		36CFCFA71E5D81EB001A80F5 /* CommonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonView.swift; sourceTree = "<group>"; };
+		36CFCFA91E5D82D7001A80F5 /* ClientItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientItem.swift; sourceTree = "<group>"; };
+		36CFCFAB1E5D86C2001A80F5 /* CommonClientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonClientCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +66,41 @@
 			children = (
 				36CFCF901E5D738D001A80F5 /* AppDelegate.swift */,
 				36CFCF921E5D738D001A80F5 /* ViewController.swift */,
+				36CFCFA41E5D7F66001A80F5 /* Controller */,
+				36CFCFA31E5D7F61001A80F5 /* View */,
+				36CFCFA21E5D7F39001A80F5 /* Model */,
 				36CFCF941E5D738D001A80F5 /* Main.storyboard */,
-				36CFCF971E5D738D001A80F5 /* Assets.xcassets */,
+				363B9C891E5DC35400FF286A /* Assets.xcassets */,
 				36CFCF991E5D738D001A80F5 /* LaunchScreen.storyboard */,
 				36CFCF9C1E5D738D001A80F5 /* Info.plist */,
 			);
 			path = YellowPage;
+			sourceTree = "<group>";
+		};
+		36CFCFA21E5D7F39001A80F5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				36CFCFA91E5D82D7001A80F5 /* ClientItem.swift */,
+				363B9C871E5D9B8D00FF286A /* PhoneBook.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		36CFCFA31E5D7F61001A80F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36CFCFA71E5D81EB001A80F5 /* CommonView.swift */,
+				36CFCFAB1E5D86C2001A80F5 /* CommonClientCell.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		36CFCFA41E5D7F66001A80F5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				36CFCFA51E5D7F88001A80F5 /* YellowPageMainViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,7 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36CFCF9B1E5D738D001A80F5 /* LaunchScreen.storyboard in Resources */,
-				36CFCF981E5D738D001A80F5 /* Assets.xcassets in Resources */,
+				363B9C8A1E5DC35400FF286A /* Assets.xcassets in Resources */,
 				36CFCF961E5D738D001A80F5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,8 +175,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36CFCFAA1E5D82D7001A80F5 /* ClientItem.swift in Sources */,
+				36CFCFAC1E5D86C2001A80F5 /* CommonClientCell.swift in Sources */,
 				36CFCF931E5D738D001A80F5 /* ViewController.swift in Sources */,
 				36CFCF911E5D738D001A80F5 /* AppDelegate.swift in Sources */,
+				363B9C881E5D9B8D00FF286A /* PhoneBook.swift in Sources */,
+				36CFCFA61E5D7F88001A80F5 /* YellowPageMainViewController.swift in Sources */,
+				36CFCFA81E5D81EB001A80F5 /* CommonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,6 +341,7 @@
 				36CFCFA11E5D738D001A80F5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
