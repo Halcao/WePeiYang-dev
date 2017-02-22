@@ -18,7 +18,17 @@ class PhoneBook: NSObject {
     }
     
     func getMembers(with string: String) -> [String] {
-        
+        if string == "校级部门" {
+            return ["计算机学院团委办公室", "信息学院团委办公室", "软件学院团委办公室"]
+        }
         return []
+    }
+    
+    func getSections() -> [String] {
+        return ["校级部门", "院级部门", "其他部门"]
+    }
+    
+    func getFavorite() -> [String] {
+        return ["计算机学院团委办公室", "信息学院团委办公室", "软件学院团委办公室"]
     }
 }
