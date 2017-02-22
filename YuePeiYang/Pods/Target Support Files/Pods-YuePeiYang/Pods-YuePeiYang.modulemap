@@ -1,0 +1,6 @@
+framework module Pods_YuePeiYang {
+  umbrella header "Pods-YuePeiYang-umbrella.h"
+
+  export *
+  module * { export * }
+}
