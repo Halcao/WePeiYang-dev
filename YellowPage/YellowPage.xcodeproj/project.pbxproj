@@ -18,6 +18,10 @@
 		36CFCFA81E5D81EB001A80F5 /* CommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFCFA71E5D81EB001A80F5 /* CommonView.swift */; };
 		36CFCFAA1E5D82D7001A80F5 /* ClientItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFCFA91E5D82D7001A80F5 /* ClientItem.swift */; };
 		36CFCFAC1E5D86C2001A80F5 /* CommonClientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CFCFAB1E5D86C2001A80F5 /* CommonClientCell.swift */; };
+		36DC4AD51E5EA0A700EC728D /* YellowPageDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC4AD41E5EA0A700EC728D /* YellowPageDetailViewController.swift */; };
+		36DC4AD71E5ED89300EC728D /* YellowPageSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC4AD61E5ED89300EC728D /* YellowPageSearchViewController.swift */; };
+		36DC4ADB1E5EFA9A00EC728D /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC4ADA1E5EFA9A00EC728D /* SearchView.swift */; };
+		36DC4ADD1E5F2D3600EC728D /* YellowPageSearchHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DC4ADC1E5F2D3600EC728D /* YellowPageSearchHistoryCell.swift */; };
 		C450BD40C8F76A41D9A2384E /* Pods_YellowPage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98867176CDC6757EC5D63A65 /* Pods_YellowPage.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +40,10 @@
 		36CFCFA71E5D81EB001A80F5 /* CommonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonView.swift; sourceTree = "<group>"; };
 		36CFCFA91E5D82D7001A80F5 /* ClientItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientItem.swift; sourceTree = "<group>"; };
 		36CFCFAB1E5D86C2001A80F5 /* CommonClientCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonClientCell.swift; sourceTree = "<group>"; };
+		36DC4AD41E5EA0A700EC728D /* YellowPageDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowPageDetailViewController.swift; sourceTree = "<group>"; };
+		36DC4AD61E5ED89300EC728D /* YellowPageSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowPageSearchViewController.swift; sourceTree = "<group>"; };
+		36DC4ADA1E5EFA9A00EC728D /* SearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		36DC4ADC1E5F2D3600EC728D /* YellowPageSearchHistoryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YellowPageSearchHistoryCell.swift; sourceTree = "<group>"; };
 		98867176CDC6757EC5D63A65 /* Pods_YellowPage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YellowPage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4860893F57BF3A4A4455FBB /* Pods-YellowPage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YellowPage.release.xcconfig"; path = "Pods/Target Support Files/Pods-YellowPage/Pods-YellowPage.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -99,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				36CFCFA71E5D81EB001A80F5 /* CommonView.swift */,
+				36DC4ADC1E5F2D3600EC728D /* YellowPageSearchHistoryCell.swift */,
+				36DC4ADA1E5EFA9A00EC728D /* SearchView.swift */,
 				36CFCFAB1E5D86C2001A80F5 /* CommonClientCell.swift */,
 				363B9C8B1E5DD2C300FF286A /* YellowPageCell.swift */,
 			);
@@ -109,6 +119,8 @@
 			isa = PBXGroup;
 			children = (
 				36CFCFA51E5D7F88001A80F5 /* YellowPageMainViewController.swift */,
+				36DC4AD41E5EA0A700EC728D /* YellowPageDetailViewController.swift */,
+				36DC4AD61E5ED89300EC728D /* YellowPageSearchViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -165,6 +177,7 @@
 				TargetAttributes = {
 					36CFCF8C1E5D738D001A80F5 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = W938R6K2AH;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
@@ -257,11 +270,15 @@
 				363B9C8C1E5DD2C300FF286A /* YellowPageCell.swift in Sources */,
 				36CFCFAA1E5D82D7001A80F5 /* ClientItem.swift in Sources */,
 				36CFCFAC1E5D86C2001A80F5 /* CommonClientCell.swift in Sources */,
+				36DC4AD71E5ED89300EC728D /* YellowPageSearchViewController.swift in Sources */,
 				36CFCF931E5D738D001A80F5 /* ViewController.swift in Sources */,
 				36CFCF911E5D738D001A80F5 /* AppDelegate.swift in Sources */,
 				363B9C881E5D9B8D00FF286A /* PhoneBook.swift in Sources */,
 				36CFCFA61E5D7F88001A80F5 /* YellowPageMainViewController.swift in Sources */,
+				36DC4AD51E5EA0A700EC728D /* YellowPageDetailViewController.swift in Sources */,
 				36CFCFA81E5D81EB001A80F5 /* CommonView.swift in Sources */,
+				36DC4ADB1E5EFA9A00EC728D /* SearchView.swift in Sources */,
+				36DC4ADD1E5F2D3600EC728D /* YellowPageSearchHistoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -385,6 +402,7 @@
 			baseConfigurationReference = 022B34458904FE284C316649 /* Pods-YellowPage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W938R6K2AH;
 				INFOPLIST_FILE = YellowPage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hal.YellowPage;
@@ -398,6 +416,7 @@
 			baseConfigurationReference = E4860893F57BF3A4A4455FBB /* Pods-YellowPage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = W938R6K2AH;
 				INFOPLIST_FILE = YellowPage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Hal.YellowPage;

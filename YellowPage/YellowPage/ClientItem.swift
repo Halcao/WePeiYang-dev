@@ -12,6 +12,7 @@ struct ClientItem {
     var name = ""
     var iconName = ""
     var phone = ""
+    var isFavorite = false
     
     init(with name: String, phone: String) {
         self.name = name
