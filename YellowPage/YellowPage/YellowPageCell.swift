@@ -10,15 +10,23 @@ import UIKit
 import SnapKit
 
 // for each item in section
-enum YellowPageCellStyle {
-    case header
-    case section
-    case item
+enum YellowPageCellStyle: String {
+    case header = "headerCell"
+    case section = "sectionCell"
+    case item = "itemCell"
 }
 
 class YellowPageCell: UITableViewCell {
     
-    var canUnfold = true
+    var canUnfold = true {
+        didSet {
+            if self.canUnfold {
+                arrowView.image = UIImage(named: "ic_arrow_right")
+            } else {
+                arrowView.image = UIImage(named: "ic_arrow_down")
+            }
+        }
+    }
     var name = ""
     let arrowView = UIImageView()
     var countLabel: UILabel! = nil
@@ -29,7 +37,7 @@ class YellowPageCell: UITableViewCell {
 
     
     convenience init(with style: YellowPageCellStyle, name: String) {
-        self.init()
+        self.init(style: .default, reuseIdentifier: style.rawValue)
         
         var font: UIFont! = nil
         let width = UIScreen.main.bounds.size.width
@@ -98,11 +106,20 @@ class YellowPageCell: UITableViewCell {
             
         case .item:
             self.textLabel?.text = name
+            if width >= bigiPhoneWidth { // 414 iPhone 6/7 Plus
+                font = UIFont.systemFont(ofSize: 15)
+            } else if width >= middleiPhoneWidth { // 375 iPhone 6(S) 7
+                font = UIFont.systemFont(ofSize: 14)
+            } else if width <= smalliPhoneWidth { // 320 iPhone 5(S)
+                font = UIFont.systemFont(ofSize: 14)
+            }
+            textLabel?.font = font
             textLabel?.sizeToFit()
             textLabel?.snp.makeConstraints { make in
-                make.top.equalTo(contentView).offset(8) //
+                make.top.equalTo(contentView).offset(12)
                 make.centerY.equalTo(contentView)
-                make.bottom.equalTo(contentView).offset(-8) //
+                make.left.equalTo(contentView).offset(15)
+                make.bottom.equalTo(contentView).offset(-12)
             }
             // TODO: font size
             // layout
@@ -117,12 +134,12 @@ class YellowPageCell: UITableViewCell {
         case .section:
             // fold & unfold
             self.canUnfold = !self.canUnfold
-            if self.canUnfold {
-                arrowView.image = UIImage(named: "ic_arrow_down")
-                
-            } else {
-                arrowView.image = UIImage(named: "ic_arrow_right")
-            }
+//            if self.canUnfold {
+//                // arrowView.image = UIImage(named: "ic_arrow_down")
+//                arrowView.image = UIImage(named: "ic_arrow_right")
+//            } else {
+//                arrowView.image = UIImage(named: "ic_arrow_down")
+//            }
         case .item:
             break
         }

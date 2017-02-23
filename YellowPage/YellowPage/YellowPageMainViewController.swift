@@ -8,16 +8,15 @@
 
 import UIKit
 
-class YellowPageMainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class YellowPageMainViewController: UIViewController {
     
     let tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: .grouped)
 
     let sections = PhoneBook.shared.getSections()
     let favorite = PhoneBook.shared.getFavorite()
     
-    //var shuldLoadRows: [Int] = []
+    var shouldLoadSections: [Int] = [] // contains each section which should be loaded
     var shouldLoadFavorite = false
-    var shouldLoadAt = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,9 +43,13 @@ class YellowPageMainViewController: UIViewController, UITableViewDataSource, UIT
         }
 
     }
+    
+}
 
+// MARK: UITableViewDataSource
+extension YellowPageMainViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2 + sections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -59,12 +62,12 @@ class YellowPageMainViewController: UIViewController, UITableViewDataSource, UIT
             } else {
                 return 1
             }
-        case 2:
-            // FIXME: count of data
-            if shouldLoadAt >= 0 {
-                return PhoneBook.shared.getMembers(with: sections[shouldLoadAt]).count + sections.count
+        case let section where section > 1 && section < 2+sections.count:
+            let n = section - 2
+            if shouldLoadSections.contains(n) {
+                return PhoneBook.shared.getMembers(with: sections[n]).count+1
             } else {
-                return sections.count
+                return 1
             }
         default:
             return 0
@@ -79,43 +82,49 @@ class YellowPageMainViewController: UIViewController, UITableViewDataSource, UIT
         case 1:
             if indexPath.row == 0 {
                 let cell = YellowPageCell(with: .section, name: "我的收藏")
-            // FIXME: DataSource
+                // FIXME: DataSource
+                cell.canUnfold = !shouldLoadFavorite
                 cell.countLabel.text = "\(favorite.count)"
                 return cell
             } else {
                 let cell = YellowPageCell(with: .item, name: favorite[indexPath.row-1])
                 return cell
             }
-        case 2:
+        case let section where section > 1 && section < 2+sections.count:
             // FIXME: dataSource
-            // FIXME: the following BUGS
-            var members: [String] = []
-            if shouldLoadAt != -1 {
-                members = PhoneBook.shared.getMembers(with: sections[shouldLoadAt])
-            }
+            // index in sections: [String]
             
-            if indexPath.row > shouldLoadAt && indexPath.row <= shouldLoadAt + members.count && shouldLoadAt != -1 {
-                let cell = YellowPageCell(with: .item, name: members[indexPath.row-shouldLoadAt-1])
-                return cell
-            }
+            let n = indexPath.section - 2
+            let members = PhoneBook.shared.getMembers(with: sections[n])
             
-            if indexPath.row > members.count + shouldLoadAt && shouldLoadAt != -1 {
-                let cell = YellowPageCell(with: .section, name: sections[indexPath.row-members.count])
-                cell.countLabel.text = "\(PhoneBook.shared.getMembers(with: sections[indexPath.row-members.count]).count)"
+            if indexPath.row == 0 {
+                let cell = YellowPageCell(with: .section, name: sections[n])
+                cell.countLabel.text = "\(members.count)"
+                if shouldLoadSections.contains(n) {
+                    cell.canUnfold = false
+                } else {
+                    cell.canUnfold = true
+                }
                 return cell
+            } else {
+                if shouldLoadSections.contains(n) {
+                    let cell = YellowPageCell(with: .item, name: members[indexPath.row-1])
+                    return cell
+                }
             }
-            let cell = YellowPageCell(with: .section, name: sections[indexPath.row])
-            cell.countLabel.text = "\(PhoneBook.shared.getMembers(with: sections[indexPath.row]).count)"
+            let cell = UITableViewCell()
             return cell
-
         default:
             // will never be executed
             let cell = UITableViewCell()
             return cell
         }
     }
-    
-    
+}
+
+
+// MARK: UITableViewDelegate
+extension YellowPageMainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.section {
@@ -130,14 +139,39 @@ class YellowPageMainViewController: UIViewController, UITableViewDataSource, UIT
                 tableView.reloadSections(IndexSet(integer: 1), with: .automatic)
             }
             
-        case 2: // normal section
-            shouldLoadAt = indexPath.row
-            //tableView.reloadRows(at: [indexPath], with: .automatic)
-            tableView.reloadSections(IndexSet(integer: 2), with: .automatic)
-
+        case let section where section > 1 && section < 2+sections.count: //  section
+            let n = indexPath.section - 2
+            if shouldLoadSections.contains(n) {
+               shouldLoadSections = shouldLoadSections.filter { e in
+                    return e != n
+                }
+            } else {
+                shouldLoadSections.append(n)
+            }
+            tableView.reloadSections(IndexSet(integer: indexPath.section), with: .automatic)
             break
         default:
             break
+        }
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 0 {
+            // don't know why i can't just return 0
+            return 0.001
+        } else if section < 3 {
+            return 7
+        } else {
+            // return 0
+            return 0.001
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section < 2 {
+            return 7
+        } else {
+            return 0.001
         }
     }
 }
